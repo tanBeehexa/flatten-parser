@@ -56,7 +56,7 @@ const getObjectContent = () => {
         const mappingKey = key.split(':').at(0).replace(/['"]+/g, '').trim()
 
         content.mappings[mappingKey] = {
-            constraints: ['VALUE_COMPARABLE'],
+            constraints: ['NONE'],
         }
     })
 
