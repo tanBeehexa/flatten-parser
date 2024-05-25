@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts" setup>
-import { CONTEXT_KEY, ContextState } from './context';
+import { CONTEXT_KEY, type ContextState } from './context';
 const context = inject<ContextState>(CONTEXT_KEY)!
 
 const regexMatchJsonata = /^(\$)(?:\.(.*))?{([^{}]+)}\[\]$/

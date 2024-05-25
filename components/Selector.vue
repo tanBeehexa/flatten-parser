@@ -24,7 +24,7 @@
 
 <script lang="ts" setup>
 import { v4 } from 'uuid'
-import { CONTEXT_KEY, ContextState } from './context';
+import { CONTEXT_KEY, type ContextState } from './context';
 
 type FieldOpts = Array<{value: string, label: string}>
 

@@ -14,7 +14,7 @@
 
 <script lang="ts" setup>
 import yaml from 'yaml'
-import { CONTEXT_KEY, ContextState } from './context';
+import { CONTEXT_KEY, type ContextState } from './context';
 const context = inject<ContextState>(CONTEXT_KEY)!
 
 enum Type {
