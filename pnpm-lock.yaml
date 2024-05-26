@@ -11,6 +11,9 @@ dependencies:
   '@guolao/vue-monaco-editor':
     specifier: ^1.5.1
     version: 1.5.1(monaco-editor@0.49.0)(vue@3.4.27)
+  radash:
+    specifier: ^12.1.0
+    version: 12.1.0
   unplugin-vue-components:
     specifier: ^0.27.0
     version: 0.27.0(vue@3.4.27)
@@ -1425,6 +1428,7 @@ packages:
     dependencies:
       is-glob: 4.0.3
       micromatch: 4.0.7
+      napi-wasm: 1.1.0
     dev: true
     bundledDependencies:
       - napi-wasm
@@ -4616,6 +4620,10 @@ packages:
     resolution: {integrity: sha512-NzOgmMQ+elxxHeIha+OG/Pv3Oc3p4RU2aBhwWwAqDpXrdTbtRylbRLQztLy8dMMwfl6pclznBdfUhccEn9ZIzw==}
     dev: true
 
+  /napi-wasm@1.1.0:
+    resolution: {integrity: sha512-lHwIAJbmLSjF9VDRm9GoVOy9AGp3aIvkjv+Kvz9h16QR3uSVYH78PNQUnT2U4X53mhlnV2M7wrhibQ3GHicDmg==}
+    dev: true
+
   /negotiator@0.6.3:
     resolution: {integrity: sha512-+EUsqGPLsM+j/zdChZjsnX51g4XrHFOIXwfnCVPGlQk/k5giakcKsuxCObBRu6DSm9opw/O6slWbJdghQM4bBg==}
     engines: {node: '>= 0.6'}
@@ -5613,6 +5621,11 @@ packages:
   /queue-tick@1.0.1:
     resolution: {integrity: sha512-kJt5qhMxoszgU/62PLP1CJytzd2NKetjSRnyuj31fDd3Rlcz3fzlFdFLD1SItunPwyqEOkca6GbV612BWfaBag==}
     dev: true
+
+  /radash@12.1.0:
+    resolution: {integrity: sha512-b0Zcf09AhqKS83btmUeYBS8tFK7XL2e3RvLmZcm0sTdF1/UUlHSsjXdCcWNxe7yfmAlPve5ym0DmKGtTzP6kVQ==}
+    engines: {node: '>=14.18.0'}
+    dev: false
 
   /radix3@1.1.2:
     resolution: {integrity: sha512-b484I/7b8rDEdSDKckSSBA8knMpcdsXudlE/LNL639wFoHKwLbEkQFZHWEYwDC0wa0FKUcCY+GAF73Z7wxNVFA==}

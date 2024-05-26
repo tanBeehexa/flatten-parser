@@ -3,7 +3,7 @@
     <vue-monaco-editor
         v-model:value="stringified"
         language="json"
-        height="80vh"
+        height="85vh"
         :options="{
           wordWrap: true,
           minimap: { enabled: false },

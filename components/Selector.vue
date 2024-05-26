@@ -9,14 +9,11 @@
       </template>
 
       <template v-for="(data) in exprList" :key="data.id">
-          <a-tab-pane :tab="data.key || 'undefined'">
-            <div style="overflow-y: scroll; height: 150px;">
-              <a-checkbox-group
-                v-model:value="currentSelectKey"
-                :options="data.fieldOpts"
-              />
-            </div>
-          </a-tab-pane>
+        <a-tab-pane :tab="data.key || 'undefined'">
+          <div style="overflow-y: scroll; height: 150px;">
+            <a-checkbox-group v-model:value="currentSelectKey" :options="data.fieldOpts" />
+          </div>
+        </a-tab-pane>
       </template>
     </a-tabs>
   </div>
@@ -26,7 +23,7 @@
 import { v4 } from 'uuid'
 import { CONTEXT_KEY, type ContextState } from './context';
 
-type FieldOpts = Array<{value: string, label: string}>
+type FieldOpts = Array<{ value: string, label: string }>
 
 const context = inject<ContextState>(CONTEXT_KEY)!
 
@@ -35,8 +32,8 @@ const regex = /^(\$)(?:\.(.*))?{([^{}]+)}\[\]$/
 const currentSelectKey = ref<string[]>([])
 const exprList = ref([])
 
-function getKeyAndFields (expr: string) {
-  const [_, _$, key, fieldString] = expr.match(regex)
+function getKeyAndFields(expr: string) {
+  const [_, _prefix, key, fieldString] = expr.match(regex)
 
   const fieldOpts: FieldOpts = fieldString
     .split(',')
@@ -50,17 +47,17 @@ function getKeyAndFields (expr: string) {
 }
 
 function getCheckboxAll(fieldOpts: FieldOpts) {
-  return fieldOpts.map(opt => opt.value )
+  return fieldOpts.map(opt => opt.value)
 }
 
 watch(() => context.jsonataExpr, () => {
   const res = context.jsonataExpr.map(el => {
-      const data = getKeyAndFields(el)
+    const data = getKeyAndFields(el)
 
-      return {
-          id: v4(),
-          ...data
-      }
+    return {
+      id: v4(),
+      ...data
+    }
   })
   if (res?.length > 0) {
     exprList.value = res

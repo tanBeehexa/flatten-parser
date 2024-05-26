@@ -72,7 +72,6 @@ function getArrayFromKeyValue(value: Array<any>) {
 }
 
 async function handleSend () {
-    console.log('CHAY', getArrayFromKeyValue(params.value), getArrayFromKeyValue(headers.value))
     const { data } = await useFetch(url.value, {
         method: method.value,
         params: getArrayFromKeyValue(params.value),

@@ -4,7 +4,7 @@
     <vue-monaco-editor
         :value="yamlContent"
         language="yaml"
-        height="50vh"
+        height="60vh"
         :options="{
           wordWrap: true,
           minimap: { enabled: false },
@@ -40,7 +40,9 @@ const getPullerContent = () => {
     for (const [k, v] of Object.entries(jsonataList)) {
         content[k] = {
             acceptedStatus: ['success'],
-            expression: `${v}[]`
+            expression: `
+${v}[]
+`
         }
     }
     return content

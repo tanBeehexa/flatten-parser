@@ -17,6 +17,7 @@
   "dependencies": {
     "@ant-design/icons-vue": "^7.0.1",
     "@guolao/vue-monaco-editor": "^1.5.1",
+    "radash": "^12.1.0",
     "unplugin-vue-components": "^0.27.0",
     "uuid": "^9.0.1",
     "vue": "^3.4.27",
