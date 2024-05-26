@@ -1,7 +1,7 @@
 export type ContextState = {
-  response: object
-  jsonataExpr: Array<string>,
-  currentExpr: object
-}
+  response: object;
+  jsonataExpressions: Array<string>;
+  selectedExpression: object;
+};
 
-export const CONTEXT_KEY = Symbol('CONTEXT_KEY') as InjectionKey<string>
+export const CONTEXT_KEY = Symbol("CONTEXT_KEY") as InjectionKey<string>;

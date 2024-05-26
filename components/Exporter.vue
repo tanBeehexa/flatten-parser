@@ -1,15 +1,10 @@
 <template>
     <h3>Output</h3>
     <a-radio-group v-model:value="type" :options="options" />
-    <vue-monaco-editor
-        :value="yamlContent"
-        language="yaml"
-        height="60vh"
-        :options="{
-          wordWrap: true,
-          minimap: { enabled: false },
-        }"
-    />
+    <vue-monaco-editor :value="yamlContent" language="yaml" height="60vh" :options="{
+        wordWrap: true,
+        minimap: { enabled: false },
+    }" />
 </template>
 
 <script lang="ts" setup>
@@ -23,14 +18,14 @@ enum Type {
 }
 
 const options = [
-  { label: 'Puller', value: Type.Puller },
-  { label: 'Object', value: Type.Object },
+    { label: 'Puller', value: Type.Puller },
+    { label: 'Object', value: Type.Object },
 ];
 const type = ref<number>(0)
 
 const getPullerContent = () => {
     const jsonataList: { [k: string]: string, value: string } = {}
-    const { key, mappingKeys } = context.currentExpr
+    const { key, mappingKeys } = context.selectedExpression
     if (mappingKeys.length === 0) { return {} }
 
     const keyName = key ? key.split('.').at(-2) : ''
@@ -49,8 +44,8 @@ ${v}[]
 }
 
 const getObjectContent = () => {
-    const content  = { resultKey: "", mappings: {} }
-    const { key, mappingKeys } = context.currentExpr
+    const content = { resultKey: "", mappings: {} }
+    const { key, mappingKeys } = context.selectedExpression
     content.resultKey = key ? key.split('.').at(-2) : 'undefined'
 
     const mappings = {}
@@ -66,7 +61,7 @@ const getObjectContent = () => {
 }
 
 const content = computed(() => {
-    if (Object.keys(context.currentExpr).length === 0) { return {} }
+    if (Object.keys(context.selectedExpression).length === 0) { return {} }
 
     switch (type.value) {
         case Type.Puller:

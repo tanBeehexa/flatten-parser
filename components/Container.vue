@@ -18,18 +18,18 @@ import mock from './mock.json'
 
 const state = reactive<ContextState>({
   response: mock,
-  jsonataExpr: [],
-  currentExpr: {}
+  jsonataExpressions: [],
+  selectedExpression: {}
 })
 provide<ContextState>(CONTEXT_KEY, state)
 
-const { generateJsonataExpression } = useGenerateJsonataExpression()
+const { generateJsonataExpressions } = useGenerateJsonataExpressions()
 
 watchEffect(() => {
   if (isEmpty(state.response)) {
     return;
   }
 
-  state.jsonataExpr = generateJsonataExpression(state.response);
+  state.jsonataExpressions = generateJsonataExpressions(state.response);
 })
 </script>
