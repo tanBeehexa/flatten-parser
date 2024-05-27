@@ -1,5 +1,7 @@
 import { install as VueMonacoEditorPlugin } from "@guolao/vue-monaco-editor";
 
+// TODO: Integrate https://github.com/remcohaszing/monaco-yaml
+
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.use(VueMonacoEditorPlugin, {
     paths: {

@@ -4,7 +4,13 @@ export type ContextState = {
   response: object;
   jsonataExpressions: Array<string>;
   selectedExpression: {
+    /**
+     * @deprecated - TODO: Change name
+     */
     key: string;
+    /**
+     * @deprecated - TODO: Change name
+     */
     mappingKeys: Array<CheckboxOptionType["value"]>;
   };
 };

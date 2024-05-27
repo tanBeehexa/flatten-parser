@@ -1,14 +1,9 @@
 <template>
-    <h4>Response</h4>
-    <vue-monaco-editor
-        v-model:value="stringified"
-        language="json"
-        height="85vh"
-        :options="{
-          wordWrap: true,
-          minimap: { enabled: false },
-        }"
-      />
+  <h4>Response</h4>
+  <vue-monaco-editor v-model:value="stringified" language="json" height="85vh" :options="{
+    wordWrap: true,
+    minimap: { enabled: false },
+  }" />
 </template>
 
 <script lang="ts" setup>
@@ -17,6 +12,6 @@ const context = inject<ContextState>(CONTEXT_KEY)!
 
 const stringified = ref(JSON.stringify(context.response, null, 2))
 watch(stringified, () => {
-  context.response = JSON.parse(stringified.value)
+  context.response = JSON.parse(stringified.value || '{}')
 })
 </script>

@@ -10,7 +10,7 @@
 
       <!-- tim.nguyen 2024/05/27 - Handle 'undefined' path display here, not handle in code logic because it affect to jsonata generate expression -->
       <template v-for="(data) in jsonataPathAndPathKeysList" :key="data.id">
-        <a-tab-pane :tab="data.path || 'root'">
+        <a-tab-pane :tab="data.path || ROOT_PATH_DISPLAY_NAME">
           <div style="overflow-y: scroll; height: 150px;">
             <a-checkbox-group v-model:value="currentSelectKey" :options="data.pathKeys" />
           </div>
@@ -42,9 +42,11 @@ function parseJsonataExpressionToGetPathAndPathKeys(expr: string) {
   const pathKeys: Array<CheckboxOptionType> = (pathKeysStringify as string)
     .split(',')
     .map((pathKey) => {
-      const res = pathKey.split(':')
+      const splitted = pathKey.split(':')
 
-      return { value: pathKey, label: res[1] }
+      // tim.nguyen 2024/05/27: value = pathKey to use in generate a jsonata expression
+      // tim.nguyen 2024/05/27: trim to remove trailling space for displaying
+      return { label: splitted[1].trim(), value: pathKey.trim() }
     })
 
   return { path, pathKeys }
