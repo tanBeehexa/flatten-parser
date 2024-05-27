@@ -8,6 +8,7 @@
         </a-button>
       </template>
 
+      <!-- tim.nguyen 2024/05/27 - Handle 'undefined' path display here, not handle in code logic because it affect to jsonata generate expression -->
       <template v-for="(data) in jsonataPathAndPathKeysList" :key="data.id">
         <a-tab-pane :tab="data.path || 'root'">
           <div style="overflow-y: scroll; height: 150px;">

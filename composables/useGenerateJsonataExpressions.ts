@@ -58,8 +58,6 @@ export const useGenerateJsonataExpressions = () => {
     // tim.nguyen 2024/05/26: After all complex logic to generate an expression, perform clean here!
     // In future will try to reduce complex logic so that don't workaround by clean at here
     return Object.entries(fullExpression).map(([fullPath, singleKeyArray]) => {
-      console.log(fullPath, singleKeyArray);
-
       return `${fullPath}{${singleKeyArray.join(", ")}}[]`;
     });
   }

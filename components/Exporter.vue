@@ -10,6 +10,7 @@
 <script lang="ts" setup>
 import yaml from 'yaml'
 import { CONTEXT_KEY, type ContextState } from './context';
+import { isEmpty } from 'radash';
 const context = inject<ContextState>(CONTEXT_KEY)!
 
 enum Type {
@@ -21,7 +22,7 @@ const options = [
     { label: 'Puller', value: Type.Puller },
     { label: 'Object', value: Type.Object },
 ];
-const type = ref<number>(0)
+const type = ref(0)
 
 const getPullerContent = () => {
     const jsonataList: { [k: string]: string, value: string } = {}
@@ -30,6 +31,8 @@ const getPullerContent = () => {
 
     const keyName = key ? key.split('.').at(-2) : ''
     jsonataList[keyName] = `$.${key}{ ${mappingKeys} }`
+
+    console.log(jsonataList)
 
     const content = {}
     for (const [k, v] of Object.entries(jsonataList)) {
@@ -48,7 +51,6 @@ const getObjectContent = () => {
     const { key, mappingKeys } = context.selectedExpression
     content.resultKey = key ? key.split('.').at(-2) : 'undefined'
 
-    const mappings = {}
     mappingKeys.forEach(key => {
         const mappingKey = key.split(':').at(0).replace(/['"]+/g, '').trim()
 
@@ -60,8 +62,8 @@ const getObjectContent = () => {
     return content
 }
 
-const content = computed(() => {
-    if (Object.keys(context.selectedExpression).length === 0) { return {} }
+const jsonContent = computed(() => {
+    if (isEmpty(context.selectedExpression)) { return {} }
 
     switch (type.value) {
         case Type.Puller:
@@ -71,7 +73,5 @@ const content = computed(() => {
     }
 })
 
-const yamlContent = computed(() => {
-    return yaml.stringify(content.value)
-})
+const yamlContent = computed(() => yaml.stringify(jsonContent.value))
 </script>
