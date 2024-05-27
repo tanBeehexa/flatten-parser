@@ -6,20 +6,37 @@ https://github.com/tanBeehexa/flatten-parser/assets/103476940/1161b289-20ea-4aa7
 
 # TL;DR
 
-```
-npm run install-library
-npm run dev
-```
+## Require Node
 
-# Production Build
+- Node version 20
 
-```
-npm run build
-npm run start
-```
-
-# Analyze Build Size
+## Install PNPM
 
 ```
-npm run analyze
+npm i -g pnpm
+```
+
+## Install Library
+
+```
+pnpm run install-library
+```
+
+# Development
+
+```
+pnpm run dev
+```
+
+# Production Build && Start Production
+
+```
+pnpm run build
+pnpm run start
+```
+
+# Analyze Production Build Size
+
+```
+pnpm run analyze
 ```
