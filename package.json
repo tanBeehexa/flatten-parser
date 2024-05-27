@@ -2,12 +2,13 @@
   "private": true,
   "scripts": {
     "install-library": "pnpm install --shamefully-hoist --prefer-offline --frozen-lockfile",
-    "build": "nuxt build",
-    "dev": "nuxt dev --host",
-    "start": "nuxt start",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "dev": "nuxi dev --host",
+    "build": "nuxi build",
+    "analyze": "nuxi analyze",
+    "start": "nuxi start",
+    "generate": "nuxi generate",
+    "preview": "nuxi preview",
+    "postinstall": "nuxi prepare"
   },
   "devDependencies": {
     "@ant-design-vue/nuxt": "^1.4.1",

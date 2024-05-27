@@ -1,46 +1,18 @@
-# Coding Convention
+# TL;DR
 
-- Từ nhánh main --> Tạo ra nhánh mới, rồi muốn làm gì trên đó làm
-
-# Nuxt 3 Minimal Starter
-
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
-
-## Setup
-
-Make sure to install the dependencies:
-
-```bash
-# yarn
-yarn install
-
-# npm
-npm install
-
-# pnpm
-pnpm install
+```
+npm run install-library && npm run dev
 ```
 
-## Development Server
+# Build
 
-Start the development server on http://localhost:3000
-
-```bash
-npm run dev
 ```
-
-## Production
-
-Build the application for production:
-
-```bash
 npm run build
+npm run start
 ```
 
-Locally preview production build:
+# Analyze Build Size
 
-```bash
-npm run preview
 ```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+npm run analyze
+```
