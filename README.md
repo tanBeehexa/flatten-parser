@@ -7,10 +7,11 @@ https://github.com/tanBeehexa/flatten-parser/assets/103476940/1161b289-20ea-4aa7
 # TL;DR
 
 ```
-npm run install-library && npm run dev
+npm run install-library
+npm run dev
 ```
 
-# Build
+# Production Build
 
 ```
 npm run build
